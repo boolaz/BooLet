@@ -20,9 +20,9 @@ Boolet has been developed in python and require two additional modules
 
 Once you have all modules properly installed, you can import your raw logs.
 
-.. code-block:: bash
+Import::
 
-  $ booLet.py --import combined access.*
+    $ booLet.py --import combined access.*
 
 For now, booLet supports three formats of logs : combined, common, and iponly (one IP per line)
 
