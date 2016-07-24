@@ -13,6 +13,7 @@ It may be used by forensic investigators, or sysadmins to quickly review HTTP lo
 
 [![ScreenShot](https://raw.githubusercontent.com/boolaz/BooLet/master/screenshot/boolet.png)](https://youtu.be/mcDYH6CiiYs)
 
+For a demo video, click on the picture above
 
 Requirements
 ------------
