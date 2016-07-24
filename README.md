@@ -1,4 +1,4 @@
-     ____              _          _   
+    ____              _          _   
     |  _ \            | |        | |  
     | |_) | ___   ___ | |     ___| |_
     |  _ < / _ \ / _ \| |    / _ \ __|
@@ -20,11 +20,26 @@ Boolet has been developed in python and require two additional modules
 
 Once you have all modules properly installed, you can import your raw logs.
 
-Import::
-
     $ booLet.py --import combined access.*
 
-For now, booLet supports three formats of logs : combined, common, and iponly (one IP per line)
+For now, booLet supports three formats of logs : ``combined``, ``common``, and ``iponly`` (one IP per line)
 
 The previous command will create a SQLite database, parse your logs, and populate the database with the data.
 
+    /-----------------------------------/ 
+    /  Storing HTTP logs into database  / 
+    /-----------------------------------/
+    file|Start|End|number of lines|nb of unique IP
+    www.brunovalentin.com.log|03/Jul/2016 06:37:04|06/Jul/2016 20:07:21|14161|906
+    www.brunovalentin.com.log.1|26/Jun/2016 06:53:16|03/Jul/2016 06:36:23|29494|1685
+    /--------------------------------/ 
+    /        Generating IP table     / 
+    /--------------------------------/
+    /----------------------------------/ 
+    /      	Generating ASN table       / 
+    /----------------------------------/
+    /----------------------------------/ 
+    /   Updating geoip and ASN infos   / 
+    /----------------------------------/
+
+You are now ready to submit your requests to the database.
