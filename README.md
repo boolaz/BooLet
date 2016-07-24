@@ -148,6 +148,7 @@ This format has been adopted because it is as easy to read as to process with ba
 
 Todo list
 ---------
+- update functionality for geoip and asn databases
 - add more input formats
 - improve filtering functionality
 - automatic extraction of suspicious lines of logs (SQLi, XSS...)
