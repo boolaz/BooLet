@@ -1,22 +1,25 @@
-    ____              _          _   
+     ____              _          _   
     |  _ \            | |        | |  
     | |_) | ___   ___ | |     ___| |_
     |  _ < / _ \ / _ \| |    / _ \ __|
     | |_) | (_) | (_) | |___|  __/ |_
     |____/ \___/ \___/|______\___|\__|
 
-# Boolaz Log Examination Tool
+Boolaz Log Examination Tool
+===========================
 
 This tool is aimed at optimizing analysis of HTTP logs, with the ability to produce reports based on filters applied to the raw logs.
 It may be used by forensic investigators, or sysadmins to quickly review HTTP logs and determine the causes of incident.
 
-# Requirements
+Requirements
+------------
 
 Boolet has been developed in python and require two additional modules
 - [geoip2](https://pypi.python.org/pypi/geoip2)
 - [pyasn](https://pypi.python.org/pypi/pyasn)
 
-# Usage
+How to import your log files
+----------------------------
 
 Once you have all modules properly installed, you can import your raw logs.
 
@@ -24,7 +27,7 @@ Once you have all modules properly installed, you can import your raw logs.
 
 For now, booLet supports three formats of logs : ``combined``, ``common``, and ``iponly`` (one IP per line)
 
-The previous command will create a SQLite database, parse your logs, and populate the database with the data.
+The previous command will create a SQLite database, parse your logs, and populate the database with the data. It also generates a CSV file containing the summary the the imported log files (start, end, nb of lines, nb of unique IP)
 
     /-----------------------------------/ 
     /  Storing HTTP logs into database  / 
@@ -42,4 +45,7 @@ The previous command will create a SQLite database, parse your logs, and populat
     /   Updating geoip and ASN infos   / 
     /----------------------------------/
 
-You are now ready to submit your requests to the database.
+You are now ready to submit your requests to the database. 
+
+How to query data
+-----------------
