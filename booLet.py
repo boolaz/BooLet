@@ -4,7 +4,7 @@
 # Name       : BooLET.py
 # Purpose    : HTTP Log Examination and filtering Tool
 # Revision   : 1.0 (24/07/2016)
-# Author     : Bruno Valentin - bruno@brunovalentin.com
+# Author     : Bruno Valentin - brvltn@gmail.com
 # Updates    : https://github.com/boolaz/BooLet     
 # Reference  : http://www.brunovalentin.com/dev/
 # ----------------------------------------------------
