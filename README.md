@@ -96,8 +96,8 @@ The following fields may be used :
     g: asn range
     l: asn label
 
-Filtering data
---------------
+How to filter output
+--------------------
 If you want to narrow down your search and to be presented with more accurate information, you can also filter data upon specific fields
 
 This example displays fields ``dhiuns`` where ``country code=(BE or ES or DE)`` and ``time begins with "16:"``
@@ -121,8 +121,8 @@ output :
 
 Of course you're free to chose the fields order : ``dhiuns`` is not ``idhsnu``
 
-Export Output
---------------
+How to export output data
+-------------------------
 When you're happy with your output, you have two options to save it to an output file.
 
 - Use the > sign to redirect to a new file
