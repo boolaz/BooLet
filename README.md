@@ -33,6 +33,7 @@ During this phase, boolet ignores the following type of files : ``ico jpg png js
 
 In addition, Boolet ignores visits from common bots as they are generally not of interest in the scope of a forensic investigation.
 
+
     /-----------------------------------/
     /  Storing HTTP logs into database  /
     /-----------------------------------/
@@ -91,13 +92,13 @@ The following fields may be used :
 
 Filtering data
 --------------
-If you just want to narrow down your search to specific information, you can also filter information based upon specific fields
+If you just want to narrow down your search to more accurate information, you can also filter information based upon specific fields
 
 This example displays fields ``dhiuns`` where ``country code=(BE or ES or DE)`` and ``time begins with "16:"``
 
     $ booLet.py --fields dhiuns --country BE,ES,DE --time 16:
 
-will produce the following output
+output :
 
     2016-06-28|16:27:10|136.243.56.239|/feed/|Germany|AS24940
     2016-06-28|16:27:10|136.243.56.239|/feed/|Germany|AS24940
@@ -114,11 +115,12 @@ will produce the following output
 
 Export Output
 --------------
-When you're happy with your output, you have multiple options to save it to a distinct output file.
-- Use the > sign to redirect to a new file
-- Boolet has also a ``--out`` option to export in a csv file (pipe separated fields)
+When you're happy with your output, you have two options to save it to an output file.
 
-example
+- Use the > sign to redirect to a new file
+    booLet.py --fields dhi > outfile.csv
+
+- Boolet has also a ``--out`` option to export in a csv file (pipe separated fields)
 
     $ booLet.py --fields dhi --out outfile.csv
 
