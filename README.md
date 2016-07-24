@@ -1,10 +1,11 @@
-# Boolaz Log Examination Tool
      ____              _          _   
     |  _ \            | |        | |  
     | |_) | ___   ___ | |     ___| |_
     |  _ < / _ \ / _ \| |    / _ \ __|
     | |_) | (_) | (_) | |___|  __/ |_
     |____/ \___/ \___/|______\___|\__|
+
+# Boolaz Log Examination Tool
 
 Log Examination Tool for apache and Nginx
 
