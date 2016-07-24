@@ -125,7 +125,7 @@ When you're happy with your output, you have two options to save it to an output
 
     ``$ booLet.py --fields dhi --out outfile.csv``
 
-will generate the following file :
+Both will generate the following file, named outfile.csv :
 
     2016-06-26|06:54:10|146.185.251.48
     2016-06-26|06:57:39|146.185.251.210
@@ -134,3 +134,12 @@ will generate the following file :
     2016-06-26|07:00:35|37.187.109.125
     2016-06-26|07:00:36|91.134.167.121
     2016-06-26|07:01:04|86.247.45.90
+    ...
+
+Todo list
+---------
+- add more input format
+- improve filtering functionality
+- automatic extraction of suspicious lines of logs (SQLi, XSS...)
+
+Stay tuned ...
