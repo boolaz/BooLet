@@ -143,4 +143,4 @@ Todo list
 - automatic extraction of suspicious lines of logs (SQLi, XSS...)
 
 
-Stay tuned ...
+Stay tuned for updates and please, feel free to report any bug to the author.
