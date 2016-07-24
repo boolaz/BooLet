@@ -29,33 +29,12 @@ For now, booLet supports three formats of logs : ``combined``, ``common``, and `
 
 The previous command will create a SQLite database, parse your logs, and populate the database with the data. It also generates a CSV file containing the summary the the imported log files (start, end, nb of lines, nb of unique IP)
 
-<<<<<<< Updated upstream
     /-----------------------------------/
     /  Storing HTTP logs into database  /
-=======
-    /-----------------------------------/
-    /  Storing HTTP logs into database  /
->>>>>>> Stashed changes
     /-----------------------------------/
     file|Start|End|number of lines|nb of unique IP
     www.brunovalentin.com.log|03/Jul/2016 06:37:04|06/Jul/2016 20:07:21|14161|906
     www.brunovalentin.com.log.1|26/Jun/2016 06:53:16|03/Jul/2016 06:36:23|29494|1685
-<<<<<<< Updated upstream
-    /--------------------------------/
-    /        Generating IP table     /
-    /--------------------------------/
-    /----------------------------------/
-    /      	Generating ASN table       /
-    /----------------------------------/
-    /----------------------------------/
-    /   Updating geoip and ASN infos   /
-    /----------------------------------/
-
-You are now ready to submit your requests to the database.
-
-How to query data
------------------
-=======
     /--------------------------------/
     /        Generating IP table     /
     /--------------------------------/
@@ -148,4 +127,3 @@ will generate the following file :
     2016-06-26|07:00:35|37.187.109.125
     2016-06-26|07:00:36|91.134.167.121
     2016-06-26|07:01:04|86.247.45.90
->>>>>>> Stashed changes
