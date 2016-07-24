@@ -138,8 +138,9 @@ Both will generate the following file, named outfile.csv :
 
 Todo list
 ---------
-- add more input format
+- add more input formats
 - improve filtering functionality
 - automatic extraction of suspicious lines of logs (SQLi, XSS...)
+
 
 Stay tuned ...
