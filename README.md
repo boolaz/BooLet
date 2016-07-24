@@ -14,7 +14,10 @@ It may be used by forensic investigators, or sysadmins to quickly review HTTP lo
 Requirements
 ------------
 
-Boolet has been developed in python and require two additional modules
+Boolet has been developed in python and successfully tested on Linux Ubuntu 14.04 LTS.
+
+Boolet requires two additional python modules
+
 - [geoip2](https://pypi.python.org/pypi/geoip2)
 - [pyasn](https://pypi.python.org/pypi/pyasn)
 
@@ -143,6 +146,7 @@ Todo list
 - add more input formats
 - improve filtering functionality
 - automatic extraction of suspicious lines of logs (SQLi, XSS...)
+- compiled binary for windows
 
 
 Stay tuned for updates and please, feel free to report any bug to the author.
