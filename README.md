@@ -27,7 +27,11 @@ Once you have all modules properly installed, you can import your raw logs.
 
 For now, booLet supports three formats of logs : ``combined``, ``common``, and ``iponly`` (one IP per line)
 
-The previous command will create a SQLite database, parse your logs, and populate the database with the data. It also generates a CSV file containing the summary the the imported log files (start, end, nb of lines, nb of unique IP)
+The previous command will create a SQLite database, parse your logs, and populate the database with the data. It also generates a CSV file containing the summary of the imported log files (start, end, nb of lines, nb of unique IP)
+
+During this phase, boolet ignores the following type of files : ``ico jpg png js css gif woff svg robots.txt`` to focus more on static HTML pages and dynamic content such as PHP scripts.
+
+In addition, Boolet ignores visits from common bots as they are generally not of interest in the scope of a forensic investigation.
 
     /-----------------------------------/
     /  Storing HTTP logs into database  /
