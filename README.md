@@ -113,6 +113,8 @@ output :
     2016-06-30|16:27:31|136.243.56.239|/feed/|Germany|AS24940
     2016-07-06|16:30:29|109.128.211.78|/|Belgium|AS5432
 
+Of course you're free to chose the fields order : ``dhiuns`` is not ``idhsnu``
+
 Export Output
 --------------
 When you're happy with your output, you have two options to save it to an output file.
