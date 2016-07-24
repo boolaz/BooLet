@@ -118,6 +118,7 @@ Export Output
 When you're happy with your output, you have two options to save it to an output file.
 
 - Use the > sign to redirect to a new file
+
     booLet.py --fields dhi > outfile.csv
 
 - Boolet has also a ``--out`` option to export in a csv file (pipe separated fields)
