@@ -30,12 +30,11 @@ Once you have all modules properly installed, you can import your raw logs.
 
 For now, booLet supports three formats of logs : ``combined``, ``common``, and ``iponly`` (one IP per line)
 
-The previous command will create a SQLite database, parse your logs, and populate the database with the data. It also generates a CSV file containing the summary of the imported log files (start, end, nb of lines, nb of unique IP)
+The previous command will create a SQLite database, parse your logs, and populate the database with the data. It will also generate a CSV file containing the summary of the imported log files (start, end, nb of lines, nb of unique IP)
 
-During this phase, boolet ignores the following type of files : ``ico jpg png js css gif woff svg robots.txt`` to focus more on static HTML pages and dynamic content such as PHP scripts.
+During this phase, boolet ignores the following types of file : ``ico jpg png js css gif woff svg robots.txt`` to focus more on static HTML pages and dynamic content such as PHP scripts.
 
-In addition, Boolet ignores visits from common bots as they are generally not of interest in the scope of a forensic investigation.
-
+In addition, Boolet ignores visits from most common bots as they are generally not of interest in the scope of a forensic investigation.
 
     /-----------------------------------/
     /  Storing HTTP logs into database  /
@@ -55,11 +54,11 @@ In addition, Boolet ignores visits from common bots as they are generally not of
 
 You are now ready to submit your requests to the database.
 
-Each and every line of log is now associated with the additional fields regarding the IP address (country name, country ISO code, city, Autonomous System (ASN), ASN description, and IP range the IP address belongs to)
+Each and every line of log is now associated with additional fields regarding IP addresses (country name, country ISO code, city, Autonomous System (ASN), ASN description, and IP range the IP address belongs to)
 
 How to query data
 -----------------
-you can retrieve your log data based upon selected fields
+you can retrieve your log data based upon selected fields in the requested order
 
 example
 
@@ -95,7 +94,7 @@ The following fields may be used :
 
 Filtering data
 --------------
-If you just want to narrow down your search to more accurate information, you can also filter information based upon specific fields
+If you want to narrow down your search and to be presented with more accurate information, you can also filter data upon specific fields
 
 This example displays fields ``dhiuns`` where ``country code=(BE or ES or DE)`` and ``time begins with "16:"``
 
@@ -140,6 +139,8 @@ Both will generate the following file, named outfile.csv :
     2016-06-26|07:00:36|91.134.167.121
     2016-06-26|07:01:04|86.247.45.90
     ...
+
+This format has been adopted because it is as easy to read as to process with bash tools like awk, cut or sort.
 
 Todo list
 ---------
