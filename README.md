@@ -30,7 +30,7 @@ In order to install pyasn on windows, you will also need
 - [Microsoft Visual C++ Compiler for Python 2.7] (https://www.microsoft.com/en-us/download/details.aspx?id=44266)
 
 If you're a windows user, you can also use the stand-alone binary version of BooLET.
-- [BooLET for windows](https://github.com/boolaz/booLet/windows)
+- [BooLET for windows](https://github.com/boolaz/BooLet/tree/master/windows)
 
 How to import your log files
 ----------------------------
