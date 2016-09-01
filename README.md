@@ -29,6 +29,9 @@ In order to install pyasn on windows, you will also need
 
 - [Microsoft Visual C++ Compiler for Python 2.7] (https://www.microsoft.com/en-us/download/details.aspx?id=44266)
 
+If you're a windows user, you can also use the stand-alone binary version of BooLET.
+- [BooLET for windows](https://github.com/boolaz/booLet/windows)
+
 How to import your log files
 ----------------------------
 
@@ -156,7 +159,5 @@ Todo list
 - add more input formats
 - improve filtering functionality
 - automatic extraction of suspicious lines of logs (SQLi, XSS...)
-- compiled binary for windows
-
 
 Stay tuned for updates and please, feel free to report any bug to the author.

@@ -3,9 +3,9 @@
 # ----------------------------------------------------
 # Name       : BooLET.py
 # Purpose    : HTTP Log Examination and filtering Tool
-# Revision   : 1.0 (24/07/2016)
-# Author     : Bruno Valentin - brvltn@gmail.com
-# Updates    : https://github.com/boolaz/BooLet     
+# Revision   : 1.1 (01/09/2016)
+# Author     : Bruno Valentin - bruno@boolaz.com
+# Updates    : https://github.com/boolaz/BooLet
 # Reference  : http://www.brunovalentin.com/dev/
 # ----------------------------------------------------
 
@@ -20,30 +20,14 @@ reload(sys)
 sys.setdefaultencoding("utf-8")
 
 # -----------------------------------------------------------
-version="1.0"
-release_date="24/07/2016"
 
-script_path=os.path.dirname(os.path.realpath(__file__))
-db_file='apachelogs.db'
+softdesc={"name":"booLet",
+          "version":"1.1", \
+          "release":"01/09/2016", \
+          "purpose":"Log Examination Tool", \
+          "link":"https://github.com/boolaz/booLet" }
 
-log_formats = {
-    'common':'([^ ]+) [^ ]+ [^ ]+ \[([^:]+):([^ ]+) (.*?)\] "([^ ]+) ?([^ ]*) ?([^ ]*)" (\d+) ([\d\-]+)(.*?)(.*?)', 
-    'combined':'^(\S+) \S+ \S+ \[([^:]+):(\d+:\d+:\d+) ([^\]]+)\] \" *(\S+) ?(.*?) ?(\S+)?\" (\S+) (\S+) "([^"]*)" "([^"]*)"',
-    'iponly':'([^ ]+)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)' 
-}
-excluded_uri = '.*(\.(ico|jpg|png|js|css|gif|woff|svg)(\?|&)?|robots\.txt)'
-
-excluded_agents = '.*((bingbot|OrangeBot|Googlebot|DotBot|Exabot|Baiduspider|MJ12bot|YandexBot|SMTBot|Googlebot\-Mobile|Applebot|AhrefsBot|Cliqzbot|msnbot\-media|Twitterbot)/|baidu\.com|ia_archiver|ysearch/slurp|internal dummy connection).*'
-
-banner = (" \n\
-****************************************************** \n\
-* BooLET {0} ({1}) - brvltn@gmail.com         * \n\
-* Boolaz Log Extamination Tool (HTTP log processing) * \n\
-* Updates : https://github.com/boolaz/BooLet         * \n\
-******************************************************".format(version,release_date))
-
-usage_str = (" \n\
-IMPORTING RAW LOGS AND CREATING LOG DATABASE \n\
+usage_text="""IMPORTING RAW LOGS AND CREATING LOG DATABASE \n\
  booLet.py --import combined nom_fichiers_log \n\
  available formats : combined, common, iponly \n\
    \n\
@@ -80,18 +64,53 @@ CONDITIONS AND FILTERS \n\
   --isp \n\
    \n\
 EXPORTING RESULTS \n\
- booLet.py --out output.csv \n")
+ booLet.py --out output.csv \n
+"""
+
+version="1.0"
+release_date="24/07/2016"
+
+script_path=os.path.dirname(os.path.realpath(__file__))
+db_file='apachelogs.db'
+
+log_formats = {
+    'common':'([^ ]+) [^ ]+ [^ ]+ \[([^:]+):([^ ]+) (.*?)\] "([^ ]+) ?([^ ]*) ?([^ ]*)" (\d+) ([\d\-]+)(.*?)(.*?)',
+    'combined':'^(\S+) \S+ \S+ \[([^:]+):(\d+:\d+:\d+) ([^\]]+)\] "(\S+) ?(\S+)? ?(\S+).*" (\S+) (\S+) "(.+)?" "(.*)"$',
+    'iponly':'([^ ]+)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)'
+}
+#'combined':'^(\S+) \S+ \S+ \[([^:]+):(\d+:\d+:\d+) ([^\]]+)\] \" *(\S+) ?(.*?) ?(\S+)?\" (\S+) (\S+) "([^"]*)" "([^"]*)"',
+excluded_uri = '.*(\.(ico|jpg|png|js|css|gif|woff|svg)(\?|&)?|robots\.txt)'
+
+excluded_agents = '.*((bingbot|OrangeBot|Googlebot|DotBot|Exabot|Baiduspider|MJ12bot|YandexBot|SMTBot|Googlebot\-Mobile|Applebot|AhrefsBot|Cliqzbot|msnbot\-media|Twitterbot)/|baidu\.com|ia_archiver|ysearch/slurp|internal dummy connection).*'
 
 # -----------------------------------------------------------
-def usage():
-    global banner,usage_str
-    print banner
-    print usage_str
+class Banner(object):
+    """Banner for the program"""
+    def __init__(self, banner_values):
+        super(Banner, self).__init__()
+        self.banner_values = banner_values
+
+    def display(self):
+        print("""
+****************************************************** \n\
+* {0} {1} ({2}) \n\
+* {3}           \n\
+* Author : Bruno Valentin (bruno@boolaz.com) \n\
+* Updates : {4} \n\
+******************************************************\n""" \
+         .format(self.banner_values['name'],self.banner_values['version'],
+                 self.banner_values['release'],self.banner_values['purpose'],
+                 self.banner_values['link']))
+
+# -----------------------------------------------------------
+def usage(usage_text):
+    """Usage"""
+    print usage_text
 
 # -----------------------------------------------------------
 def create_new_database(db):  # creation d'une base vide
     with db:
-        db.execute("DROP TABLE IF EXISTS logs") 
+        db.execute("DROP TABLE IF EXISTS logs")
         db.execute("CREATE TABLE logs(IP TEXT, ladate TEXT,lheure TEXT, method TEXT,uri TEXT, status INT, \
             size INT, referer TEXT, agent TEXT)")
         db.execute("CREATE INDEX _IP_LOGS ON logs(IP ASC)")
@@ -109,15 +128,16 @@ def format_line(line,log_format):
     regex=log_formats[log_format]
     try:
         logip,logdate,logtime,logtz,logmethod,loguri,logversion,logstatus,logsize,referer,logagent=re.match(regex, line).groups()
+        # print re.match(regex, line).groups()
     except:
         print u"The following line raises an exception : \n{0}".format(line)
-        #print re.match(regex, line).groups()
+        # print re.match(regex, line).groups()
         sys.exit(2)
     return(logip,logdate,logtime,logtz,logmethod,loguri,logversion,logstatus,logsize,referer,logagent)
 
 # -----------------------------------------------------------
 def upload_logs_in_db(db,outdir,log_format,fichiers):
-    
+
     global excluded_uri,excluded_agents
     # global log_formats
     db.row_factory = lite.Row  # @UndefinedVariable
@@ -136,12 +156,12 @@ def upload_logs_in_db(db,outdir,log_format,fichiers):
     # analyse de chaque fichier
     detail_fichiers=[]
     for fichier in fichiers:
-        
+
         fd = open(fichier,"r")
         lignes_total= 0
         for line in fd:
             lignes_total+= 1
-            
+
         nb_lines=0
         ip=[]
         les_lignes=[]
@@ -164,7 +184,7 @@ def upload_logs_in_db(db,outdir,log_format,fichiers):
             if not re.match(excluded_uri, "{0!s}".format(loguri), flags=re.I) and not re.match(excluded_agents, "{0!s}".format(logagent)) :
                 les_lignes.append((logip,date_stamp,logtime,logmethod,loguri,logstatus,logsize, referer, logagent))
 
-        with db:    
+        with db:
             cur = db.cursor()
             sql="INSERT INTO logs VALUES (?,?,?,?,?,?,?,?,?);"
             db.executemany(sql,les_lignes)
@@ -188,10 +208,10 @@ def create_ip_table(db):
 
     ip_list=[]
 
-    with db:    
+    with db:
         cur = db.cursor()
 
-        db.execute("DROP TABLE IF EXISTS ips") 
+        db.execute("DROP TABLE IF EXISTS ips")
         db.execute("CREATE TABLE ips(IP TEXT, isocode TEXT, country_name TEXT, city_name TEXT, asn INT, range TEXT, asnlabel TEXT)")
         db.execute("CREATE UNIQUE INDEX _IP_IPS ON ips(IP ASC)")
         db.execute("CREATE INDEX _isocode_IPS ON ips(isocode ASC)")
@@ -223,8 +243,8 @@ def create_asn_table(db):
         asnlabel="%s" % unicode(asnLabel)  # @UndefinedVariable
         les_lignes.append((asn,asnlabel))
 
-    with db:    
-        db.execute("DROP TABLE IF EXISTS asns") 
+    with db:
+        db.execute("DROP TABLE IF EXISTS asns")
         db.execute("CREATE TABLE asns(asn TEXT, asnlabel TEXT)")
         db.execute("CREATE UNIQUE INDEX _asn_asns ON asns(asn ASC)")
 
@@ -244,7 +264,7 @@ def maj_location_asn(db):
     reader = geoip2.database.Reader(script_path+'/booLet_extres/GeoLite2-City.mmdb')
     asn_db = pyasn.pyasn(script_path+'/booLet_extres/ipasn_20150224.dat')
     les_lignes=[]
-    with db:    
+    with db:
         cur = db.cursor()
         sql="SELECT IP FROM ips;"
         results=cur.execute(sql)
@@ -261,7 +281,7 @@ def maj_location_asn(db):
             if response.country.names<>'' : country_name=response.country.name
 
 
-        if response.city.name: 
+        if response.city.name:
             if response.city.name<>'':
                 city_name=response.city.name
             else: city_name='-'
@@ -276,7 +296,7 @@ def maj_location_asn(db):
 
         les_lignes.append((iso_code,country_name,city_name,asn,range,mon_ip[0]))
 
-    with db:    
+    with db:
         cur = db.cursor()
         sql="UPDATE ips SET isocode=?, country_name=?, city_name=?, asn=?, range=? WHERE IP=?"
         db.executemany(sql,les_lignes)
@@ -293,7 +313,7 @@ def maj_location_asn(db):
 # -----------------------------------------------------------
 def get(db,fields='idhmutzracnysgl',condition='',outfile=''):
 
-    if outfile: 
+    if outfile:
         dest = open(outfile,"w")
         print ("/--------------------------------/ \n\
 /     Exporting output file      /\n\
@@ -305,13 +325,13 @@ def get(db,fields='idhmutzracnysgl',condition='',outfile=''):
 
     db.row_factory = lite.Row  # @UndefinedVariable
 
-    with db:    
+    with db:
         cur = db.cursor()
         sql="SELECT logs.*,  ips.* FROM logs LEFT JOIN ips ON ips.IP=logs.IP "+condition+" ORDER BY logs.ladate ASC, logs.lheure ASC;"
         lignes=cur.execute(sql)
 
     if outfile:
-        header_line="" 
+        header_line=""
         cpt=0
         for field in fields:
             cpt+=1
@@ -362,7 +382,7 @@ def get(db,fields='idhmutzracnysgl',condition='',outfile=''):
         else: print output_line
 
 def make_clause(field,items):
-    clause="(" 
+    clause="("
     list=("%s" % items).split(",")
     cpt=0
     for item in list:
@@ -375,7 +395,7 @@ def make_clause(field,items):
     return(clause)
 
 # -----------------------------------------------------------
-def main(argv): 
+def main(argv):
 
     global db_file
     global log_formats
@@ -383,60 +403,63 @@ def main(argv):
     chemin,fields,importation,columns,out=('','','','','')
     clauses=[]
 
+    my_banner=Banner(softdesc)
+    my_banner.display()
+
     # détection des arguments
-    try:                                
+    try:
         opts, args = getopt.getopt(argv, \
             "hf:i:o:", \
             ["help","fields=","import=","out=","ip=","date=","time=","method=","uri=","status=","referer=","agent=","asn=","country=","isp="])
-    except getopt.GetoptError:          
-        usage()                         
-        sys.exit(2)   
+    except getopt.GetoptError:
+        usage(usage_text)
+        sys.exit(2)
 
     if opts :
-        for opt, arg in opts:                
-            if opt in ("-h", "--help"):      
-                usage()                     
+        for opt, arg in opts:
+            if opt in ("-h", "--help"):
+                usage(usage_text)
                 sys.exit()
-            elif opt in ("-i", "--import"):             
+            elif opt in ("-i", "--import"):
                 log_format = "%s" % arg
-                if log_formats.has_key(log_format): 
+                if log_formats.has_key(log_format):
                     importation=1
                 else:
-                    print "Format type \"{0}\" doesn't exist. BooLET is using combined format instead".format(log_format)   
-                    log_format = "combined"           
-                    importation=1     
-            elif opt in ("-f", "--fields"): 
+                    print "Format type \"{0}\" doesn't exist. BooLET is using combined format instead".format(log_format)
+                    log_format = "combined"
+                    importation=1
+            elif opt in ("-f", "--fields"):
                 columns = "%s" % arg
-            elif opt in ("-o", "--out"): 
+            elif opt in ("-o", "--out"):
                 out= "%s" % arg
 
             elif opt in ("--ip"):
                 clauses.append(make_clause('logs.IP',"%s" % arg))
-            elif opt in ("--date"): 
+            elif opt in ("--date"):
                 clauses.append(make_clause('logs.ladate',"%s" % arg))
-            elif opt in ("--time"): 
+            elif opt in ("--time"):
                 clauses.append(make_clause('logs.lheure',"%s" % arg))
-            elif opt in ("--method"): 
+            elif opt in ("--method"):
                 clauses.append(make_clause('logs.method',"%s" % arg))
             elif opt in ("--uri"):
                 clauses.append(make_clause('logs.uri',"%s" % arg))
-            elif opt in ("--status"): 
-                clauses.append(make_clause('logs.status',"%s" % arg))    
-            elif opt in ("--referer"): 
+            elif opt in ("--status"):
+                clauses.append(make_clause('logs.status',"%s" % arg))
+            elif opt in ("--referer"):
                 clauses.append(make_clause('logs.referer',"%s" % arg))
-            elif opt in ("--agent"): 
+            elif opt in ("--agent"):
                 clauses.append(make_clause('logs.agent',"%s" % arg))
-            elif opt in ("--asn"): 
+            elif opt in ("--asn"):
                 clauses.append(make_clause('ips.asn',"%s" % arg))
-            elif opt in ("--country"): 
+            elif opt in ("--country"):
                 clauses.append(make_clause('ips.isocode',"%s" % arg.upper()))
-            elif opt in ("--isp"): 
+            elif opt in ("--isp"):
                 clauses.append(make_clause('ips.asnlabel',"%s" % arg))
-        
+
             globalclause=" AND ".join(clauses)
     else:
-        usage()                         
-        sys.exit(2)  
+        usage(usage_text)
+        sys.exit(2)
 
     #os.system('clear')
 
@@ -446,7 +469,7 @@ def main(argv):
     DB = lite.connect(rep_travail + "/" + db_file)   # @UndefinedVariable
 
     if importation:
-        print banner
+        #print banner
         create_new_database(DB)
         upload_logs_in_db(DB,rep_travail,log_format,args)
         create_ip_table(DB)
