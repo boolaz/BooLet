@@ -18,12 +18,16 @@ For a demo video, click on the picture above
 Requirements
 ------------
 
-Boolet has been developed in python and successfully tested on Linux Ubuntu 14.04 LTS.
+Boolet has been developed in python and successfully tested on Linux Ubuntu 14.04 LTS and Windows 8.1x64
 
 Boolet requires two additional python modules
 
 - [geoip2](https://pypi.python.org/pypi/geoip2)
 - [pyasn](https://pypi.python.org/pypi/pyasn)
+
+In order to install pyasn on windows, you will also need
+
+- [Microsoft Visual C++ Compiler for Python 2.7]https://www.microsoft.com/en-us/download/details.aspx?id=44266
 
 How to import your log files
 ----------------------------
