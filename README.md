@@ -158,6 +158,6 @@ Todo list
 - update functionality for geoip and asn databases
 - add more input formats
 - improve filtering functionality
-- automatic extraction of suspicious lines of logs (SQLi, XSS...)
+- automatic extraction of suspicious lines of logs (SQLi, XSS, directory traversal...)
 
 Stay tuned for updates and please, feel free to report any bug to the author.
