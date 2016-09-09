@@ -1,1 +1,5 @@
 .DS_Store
+*.pyc
+*_test*
+apachelogs.db
+summary.csv
