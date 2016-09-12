@@ -18,7 +18,7 @@ For a demo video, click on the picture above
 Requirements
 ------------
 
-Boolet has been developed in python and successfully tested on Linux Ubuntu 14.04 LTS and Windows 8.1x64
+Boolet has been developed in python 2.7 and successfully tested on Linux Ubuntu 14.04 LTS, MacOSX 10.11.6 El Capitan and Windows 8.1x64
 
 Boolet requires two additional python modules
 
