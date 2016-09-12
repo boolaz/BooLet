@@ -30,7 +30,6 @@ On a mac, installing the required modules can be achieved by the following comma
     sudo easy_install pip
     sudo -H pip install geoip2
     sudo -H pip install pyasn
-    ./booLet.py --import combined logs/*.log
 
 In order to install pyasn on windows, you will also need
 
