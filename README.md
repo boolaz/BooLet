@@ -25,6 +25,12 @@ Boolet requires two additional python modules
 - [geoip2](https://pypi.python.org/pypi/geoip2)
 - [pyasn](https://pypi.python.org/pypi/pyasn)
 
+On a mac, installing the required modules can be achieved by the following commands :
+    sudo easy_install pip
+    sudo -H pip install geoip2
+    sudo -H pip install pyasn
+    ./booLet.py --import combined logs/*.log
+
 In order to install pyasn on windows, you will also need
 
 - [Microsoft Visual C++ Compiler for Python 2.7] (https://www.microsoft.com/en-us/download/details.aspx?id=44266)
