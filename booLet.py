@@ -76,7 +76,7 @@ db_file='apachelogs.db'
 log_formats = {
     'common':'([^ ]+) [^ ]+ [^ ]+ \[([^:]+):([^ ]+) (.*?)\] "([^ ]+) ?([^ ]*) ?([^ ]*)" (\d+) ([\d\-]+)(.*?)(.*?)',
     'combined':'^(\S+) \S+ \S+ \[([^:]+):(\d+:\d+:\d+) ([^\]]+)\] "(\S+) ?(\S+)? ?(\S+).*" (\S+) (\S+) "(.+)?" "(.*)"$',
-    'iponly':'([^ ]+)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)'
+    'iponly':'([^|\n]+)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)(.*?)'
 }
 #'combined':'^(\S+) \S+ \S+ \[([^:]+):(\d+:\d+:\d+) ([^\]]+)\] \" *(\S+) ?(.*?) ?(\S+)?\" (\S+) (\S+) "([^"]*)" "([^"]*)"',
 excluded_uri = '.*(\.(ico|jpg|png|js|css|gif|woff|svg)(\?|&)?|robots\.txt)'
@@ -274,25 +274,27 @@ def maj_location_asn(db):
         try:
             response = reader.city(mon_ip[0])
         except:
-            pass
+            country_name=city_name=iso_code='-'
+        else:
+            if response.country.names:
+                if "fr" in response.country.names: country_name=response.country.names['fr']
+                if response.country.names<>'' : country_name=response.country.name
 
-        if response.country.names:
-            if "fr" in response.country.names: country_name=response.country.names['fr']
-            if response.country.names<>'' : country_name=response.country.name
+            if response.city.name:
+                if response.city.name<>'':
+                    city_name=response.city.name
+                else: city_name='-'
 
+            if response.country.iso_code in ['','None'] : iso_code='-'
+            else: iso_code="{0!s}".format(response.country.iso_code)
 
-        if response.city.name:
-            if response.city.name<>'':
-                city_name=response.city.name
-            else: city_name='-'
-
-        if response.country.iso_code in ['','None'] : iso_code='-'
-        else: iso_code="{0!s}".format(response.country.iso_code)
-
-
-        asn,range=asn_db.lookup(mon_ip[0])
-        if ("{0!s}".format(asn)).lower()=='none': asn=range='-'
-        else: asn="AS{0!s}".format(asn)
+        try:
+            asn,range=asn_db.lookup(mon_ip[0])
+        except:
+            asn=range='-'
+        else:
+            if ("{0!s}".format(asn)).lower()=='none': asn=range='-'
+            else: asn="AS{0!s}".format(asn)
 
         les_lignes.append((iso_code,country_name,city_name,asn,range,mon_ip[0]))
 
