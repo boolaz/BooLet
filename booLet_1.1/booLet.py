@@ -278,10 +278,10 @@ def maj_location_asn(db):
         else:
             if response.country.names:
                 if "fr" in response.country.names: country_name=response.country.names['fr']
-                if response.country.names<>'' : country_name=response.country.name
+                if response.country.names!='' : country_name=response.country.name
 
             if response.city.name:
-                if response.city.name<>'':
+                if response.city.name!='':
                     city_name=response.city.name
                 else: city_name='-'
 
