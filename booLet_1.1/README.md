@@ -4,7 +4,7 @@ Boolaz Log Examination Tool - v1.1
 This tool is aimed at optimizing analysis of HTTP logs, with the ability to produce reports based on filters applied to the raw logs.
 It may be used by forensic investigators, or sysadmins to quickly review HTTP logs and determine the causes of incident.
 
-Have a look at the [general presentation](https://github.com/boolaz/BooLet/blob/master/README.md) for demo.
+Have a look at the [general presentation](https://github.com/boolaz/BooLet/blob/master/README.md) for a demo.
 
 Requirements
 ------------
@@ -28,5 +28,8 @@ In order to install pyasn on windows, you will also need
 
 If you're a windows user, you can also use the stand-alone binary version of BooLET.
 - [BooLET for windows](https://github.com/boolaz/BooLet/blob/master/booLet_1.1/windows/)
+
+usage
+-----
 
 Have a look at the [general presentation](https://github.com/boolaz/BooLet/blob/master/README.md) to get help on usage.

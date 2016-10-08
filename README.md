@@ -5,11 +5,14 @@
     | |_) | (_) | (_) | |___|  __/ |_
     |____/ \___/ \___/|______\___|\__|
 
-Boolaz Log Examination Tool
-===========================
+Boolaz Log Examination Tool (with automatic anomaly detection)
+==============================================================
 
-This tool is aimed at optimizing analysis of HTTP logs, with the ability to produce reports based on filters applied to the raw logs.
-It may be used by forensic investigators, or sysadmins to quickly review HTTP logs and determine the causes of incident.
+The latest version of booLet is 1.2 (initially published on 10/10/2016)
+
+This tool is aimed at optimizing analysis of HTTP logs and finding anomalies in the raw logs in an automated manner, based upon a custom set of Yara rules (SQLi, XSS, directory traversal, shells and PHP shells ...). booLet has the ability to also generate reports and exports based on filters applied to the raw logs.
+
+booLet may be used by forensic investigators, or sysadmins to quickly review HTTP logs and determine the causes of incidents.
 
 [![ScreenShot](https://raw.githubusercontent.com/boolaz/BooLet/master/screenshot/boolet.png)](https://youtu.be/mcDYH6CiiYs)
 
@@ -18,25 +21,26 @@ For a demo video, click on the picture above
 Requirements
 ------------
 
-Boolet has been developed in python 2.7 and successfully tested on Linux Ubuntu 14.04 LTS, MacOSX 10.11.6 El Capitan and Windows 8.1x64
+Boolet 1.2 has been developed in python 2.7 and successfully tested on Linux Ubuntu 14.04 LTS and Windows 8.1x64 (version 1.1 also works on MacOSX 10.11.6 El Capitan)
 
-Boolet requires two additional python modules
+Boolet 1.2 requires three additional python modules to work
 
 - [geoip2](https://pypi.python.org/pypi/geoip2)
 - [pyasn](https://pypi.python.org/pypi/pyasn)
+- [yara-python](https://pypi.python.org/pypi/yara-python)
 
-On a mac, installing the required modules can be achieved by the following commands :
+Installing the required modules can be achieved by the following commands :
 
-    sudo easy_install pip
     sudo -H pip install geoip2
     sudo -H pip install pyasn
+    sudo -H pip install yara-python
 
 In order to install pyasn on windows, you will also need
 
 - [Microsoft Visual C++ Compiler for Python 2.7] (https://www.microsoft.com/en-us/download/details.aspx?id=44266)
 
-If you're a windows user, you can also use the stand-alone binary version of BooLET.
-- [BooLET for windows](https://github.com/boolaz/BooLet/tree/master/windows)
+If you're a windows user, and you don't want to mess with python, you can also use the stand-alone binary version of BooLET.
+- [BooLET for windows](https://github.com/boolaz/BooLet/blob/master/booLet_1.2/windows/)
 
 How to import your log files
 ----------------------------
@@ -163,7 +167,5 @@ Todo list
 ---------
 - update functionality for geoip and asn databases
 - add more input formats
-- improve filtering functionality
-- automatic extraction of suspicious lines of logs (SQLi, XSS, directory traversal...)
 
 Stay tuned for updates and please, feel free to report any bug to the author.
