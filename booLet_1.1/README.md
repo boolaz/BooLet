@@ -9,7 +9,7 @@ Have a look at the [general presentation](https://github.com/boolaz/BooLet/blob/
 Requirements
 ------------
 
-Boolet 1.1 has been developed in python 2.7 and successfully tested on Linux Ubuntu 14.04 LTS, MacOSX 10.11.6 El Capitan and Windows 8.1x64
+Boolet 1.1 has been developed in python 2.7 and successfully tested on Linux Ubuntu 14.04 LTS and Windows 8.1x64. Contrarily to later versions, booLet 1.1 also works on MacOSX 10.11.6 El Capitan.
 
 Boolet requires two additional python modules
 
