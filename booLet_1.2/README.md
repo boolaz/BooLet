@@ -14,9 +14,9 @@ Boolet 1.2 has been developed in python 2.7 and successfully tested on Linux Ubu
 
 Boolet 1.2 requires three additional python modules to work
 
-- [geoip2](https://pypi.python.org/pypi/geoip2)
-- [pyasn](https://pypi.python.org/pypi/pyasn)
-- [yara-python](https://pypi.python.org/pypi/yara-python)
+- [geoip2](https://pypi.python.org/pypi/geoip2) (2.2.0)
+- [pyasn](https://pypi.python.org/pypi/pyasn) (1.5.0b6)
+- [yara-python](https://pypi.python.org/pypi/yara-python) (3.5.0)
 
 Installing the required modules can be achieved by the following commands :
 
