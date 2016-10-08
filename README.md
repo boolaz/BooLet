@@ -5,10 +5,10 @@
     | |_) | (_) | (_) | |___|  __/ |_
     |____/ \___/ \___/|______\___|\__|
 
-Boolaz Log Examination Tool (with automatic anomaly detection)
+Boolaz Log Examination Tool (with anomaly detection)
 ==============================================================
 
-The latest version of booLet is 1.2 (initially published on 10/10/2016)
+The latest version is [BooLET 1.2](https://github.com/boolaz/BooLet/blob/master/booLet_1.2/) (initially published on 10/10/2016)
 
 This tool is aimed at optimizing analysis of HTTP logs and finding anomalies in the raw logs in an automated manner, based upon a custom set of Yara rules (SQLi, XSS, directory traversal, shells and PHP shells ...). booLet has the ability to also generate reports and exports based on filters applied to the raw logs.
 
