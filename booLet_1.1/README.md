@@ -27,6 +27,6 @@ In order to install pyasn on windows, you will also need
 - [Microsoft Visual C++ Compiler for Python 2.7] (https://www.microsoft.com/en-us/download/details.aspx?id=44266)
 
 If you're a windows user, you can also use the stand-alone binary version of BooLET.
-- [BooLET for windows](https://github.com/boolaz/BooLet/tree/master/windows)
+- [BooLET for windows](https://github.com/boolaz/BooLet/blob/master/booLet_1.1/windows/)
 
 Have a look at the [general presentation](https://github.com/boolaz/BooLet/blob/master/README.md) to get help on usage.
