@@ -6,7 +6,7 @@
     |____/ \___/ \___/|______\___|\__|
 
 Boolaz Log Examination Tool (with anomaly detection)
-==============================================================
+====================================================
 
 The latest version is [BooLET 1.2](https://github.com/boolaz/BooLet/blob/master/booLet_1.2/) (initially published on 10/10/2016)
 
