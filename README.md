@@ -57,21 +57,29 @@ During this phase, boolet ignores the following types of file : ``ico jpg png js
 
 In addition, Boolet ignores visits from most common bots as they are generally not of interest in the scope of a forensic investigation.
 
-    /-----------------------------------/
-    /  Storing HTTP logs into database  /
-    /-----------------------------------/
+    ==> Storing HTTP logs into database <=====================
     file|Start|End|number of lines|nb of unique IP
     www.brunovalentin.com.log|03/Jul/2016 06:37:04|06/Jul/2016 20:07:21|14161|906
     www.brunovalentin.com.log.1|26/Jun/2016 06:53:16|03/Jul/2016 06:36:23|29494|1685
-    /--------------------------------/
-    /        Generating IP table     /
-    /--------------------------------/
-    /----------------------------------/
-    /      	Generating ASN table       /
-    /----------------------------------/
-    /----------------------------------/
-    /   Updating geoip and ASN infos   /
-    /----------------------------------/
+
+    ==> Generating IP table <=====================
+
+    ==> Generating ASN table <=====================
+
+    ==> Updating geoip and ASN infos <=====================
+
+    ==> Summary <=====================
+    Total anomalies in fields : 36/65950
+
+    Anomalies in referer: 0/21984
+    Anomalies in uri: 4/21982
+    Anomalies in agent: 32/21984
+
+    SQL file (sqlfile) : 1
+    shell access attempt (shell) : 32
+    SQL Injection attempt (sqli) : 2
+    encoded string (encoded) : 1
+    Unusual long field (longfield) : 1
 
 You are now ready to submit your requests to the database.
 
@@ -112,6 +120,7 @@ The following fields may be used :
     s: asn
     g: asn range
     l: asn label
+    o: type of anomaly detected
 
 How to filter output
 --------------------
@@ -137,6 +146,12 @@ output :
     2016-07-06|16:30:29|109.128.211.78|/|Belgium|AS5432
 
 Of course you're free to chose the fields order : ``dhiuns`` is not ``idhsnu``
+
+You can also search for lines with anomalies
+    Ex: boolet.py -f oiur --anomaly sqli,dirtrav
+    Ex: boolet.py -f oiur --anomaly all
+
+use the --help option of boolet for more options
 
 How to export output data
 -------------------------
