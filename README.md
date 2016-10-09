@@ -148,6 +148,7 @@ output :
 Of course you're free to chose the fields order : ``dhiuns`` is not ``idhsnu``
 
 You can also search for lines with anomalies
+
     Ex: boolet.py -f oiur --anomaly sqli,dirtrav
     Ex: boolet.py -f oiur --anomaly all
 
