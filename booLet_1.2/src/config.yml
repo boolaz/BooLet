@@ -1,0 +1,41 @@
+#=========================
+files:
+    db_file: apachelogs.db
+
+#=========================
+uri_excl:
+    discard: True
+    list:
+        - ico
+        - jpg
+        - png
+        - js
+        - css
+        - gif
+        - woff
+        - svg
+        - pdf
+        - robots\.txt
+
+#=========================
+crawl_excl:
+    discard: True
+    list:
+        - (bing|orange|google|dot|exa|MJ12|SMT|Yandex|Apple|Ahrefs)bot
+        - (Cliqz|Twitter|Semrush|linkdex|BLEX|ps|PaperLi|sp|Turnitin)bot
+        - (Wot|aiHit|Seznam|memory|media|ContextAd |nerdy|archive\.org_)bot
+        - (Mail\.RU_|roger|Prooxi|Domnutch\-?|BDC|meanpath|Dazoo|Istella)bot
+        - (Survey|linkpad|AdMedia |Tweetmeme|CC|WASALive\-|Xovi)bot
+        - Baidu(spider|\.com)
+        - (magpie\-|SISTRIX |fr\-|Netseer |MSIE|ICC\-|Adnorm|CMS )crawler
+        - (Grapeshot|CRAZYWEB|DomainTuno)crawler
+        - Googlebot\-(Mobile|Image)
+        - msnbot\-media
+        - ia_archiver
+        - ysearch/slurp
+        - internal dummy connection
+        - cognitiveseo
+        - Exabot\-Thumbnails
+        - (SEOkicks\-|Affectv )Robot
+        - Wotbox
+        - DuckDuckGo
