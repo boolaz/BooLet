@@ -37,6 +37,7 @@ Installing the required modules can be achieved by the following commands :
     sudo -H pip install pyYAML
 
 On linux yara can be installed this way
+
     sudo -H pip install yara-python
 
 On windows you will need to install yara from the binaries
