@@ -8,15 +8,3 @@
 // -----------------------------------------------------------
 
 include "anomaly_common.yar"
-
-// long Referer --------------------------
-rule ulr : unusual long referer
-{
-    meta:
-        description = "unusual long referer"
-        author = "Bruno Valentin (bruno@boolaz.com)"
-        last_updated = "2016-08-06"
-
-    condition:
-        filesize > 1000
-}
