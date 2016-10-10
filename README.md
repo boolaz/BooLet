@@ -163,7 +163,7 @@ The following example will retrieve only SQL Injections and SQL file downloads a
 
     booLet12.py -f odhiu --anomaly sqlfile,sqli
 
-The result will be as this :
+The result will be the following one :
 
     sqlfile|2014-12-07|04:24:49|46.161.41.31|/Agenda.sql
     encoded,shell,sqli|2014-12-10|17:21:19|61.182.202.57|/insert+into%3A%2C%45%56%76%54%4E%3A%2E%45
