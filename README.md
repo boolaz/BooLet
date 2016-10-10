@@ -159,6 +159,8 @@ You can also search for lines with anomalies
     Ex: boolet12.py -f oiur --anomaly sqli,dirtrav
     Ex: boolet12.py -f oiur --anomaly all
 
+### example
+
 The following example will retrieve only SQL Injections and SQL file downloads and will display the following fields (odhiu : anomaly, date, time, ip, uri)
 
     booLet12.py -f odhiu --anomaly sqlfile,sqli
