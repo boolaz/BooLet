@@ -161,13 +161,13 @@ You can also search for lines with anomalies
 
 ### example
 
-The following example will retrieve only SQL Injections and SQL file downloads and will display the following fields (odhiu : anomaly, date, time, ip, uri)
+The following example will retrieve only SQL Injections,SQL file downloads and directory traversals and will display the following fields (odhiu : anomaly, date, time, ip, uri)
 
     booLet12.py -f odhiu --anomaly sqlfile,sqli,dirtrav
 
-The result will be the following one :
+The result will be as following :
 
-    **sqlfile**|2014-12-07|04:24:49|46.161.41.257|/Agenda.sql
+    sqlfile|2014-12-07|04:24:49|46.161.41.257|/Agenda.sql
     encoded,shell,sqli|2014-12-10|17:21:19|61.182.202.257|/insert+into%3A%2C%45%56%76%54%4E%3A%2E%45
     dirtrav|2014-12-03|10:10:22|74.208.69.198|/vtigercrm/modules/com_vtiger_workflow/sortfieldsjson.php?module_name=../../../../../../../..//etc/asterisk/sip_additional.conf%00
     dirtrav|2014-12-18|21:34:49|202.62.155.257|/cart.php?a=byroe&templatefile=../../../configuration.php%00
