@@ -32,12 +32,12 @@ Boolet 1.2 requires four additional python modules to work
 
 Installing the required modules can be achieved by the following commands :
 
-sudo -H pip install geoip2
-sudo -H pip install pyasn
-sudo -H pip install pyYAML
+    sudo -H pip install geoip2
+    sudo -H pip install pyasn
+    sudo -H pip install pyYAML
 
 On linux yara can be installed this way
-sudo -H pip install yara-python
+    sudo -H pip install yara-python
 
 On windows you will need to install yara from the binaries
 - [Yara binaries for windows](http://yara.readthedocs.io/en/v3.4.0/gettingstarted.html#installing-on-windows) 
