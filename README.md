@@ -72,17 +72,17 @@ In addition, Boolet ignores visits from most common bots as they are generally n
     ==> Updating geoip and ASN infos <=====================
 
     ==> Summary <=====================
-    Total anomalies in fields : 36/65950
+    Total anomalies in fields : 199/344070
 
-    Anomalies in referer: 0/21984
-    Anomalies in uri: 4/21982
-    Anomalies in agent: 32/21984
+    Anomalies in referer: 7/114694
+    Anomalies in uri: 63/114684
+    Anomalies in agent: 129/114692
 
-    SQL file (sqlfile) : 1
-    shell access attempt (shell) : 32
-    SQL Injection attempt (sqli) : 2
-    encoded string (encoded) : 1
-    Unusual long field (longfield) : 1
+    directory traversal (dirtrav) : 8
+    SQL Injection attempt (sqli) : 1
+    shell access attempt (shell) : 132
+    encoded string (encoded) : 57
+    Unusual long field (longfield) : 2
 
 You are now ready to submit your requests to the database.
 
@@ -163,12 +163,20 @@ You can also search for lines with anomalies
 
 The following example will retrieve only SQL Injections and SQL file downloads and will display the following fields (odhiu : anomaly, date, time, ip, uri)
 
-    booLet12.py -f odhiu --anomaly sqlfile,sqli
+    booLet12.py -f odhiu --anomaly sqlfile,sqli,dirtrav
 
 The result will be the following one :
 
-    sqlfile|2014-12-07|04:24:49|46.161.41.31|/Agenda.sql
-    encoded,shell,sqli|2014-12-10|17:21:19|61.182.202.57|/insert+into%3A%2C%45%56%76%54%4E%3A%2E%45
+    **sqlfile**|2014-12-07|04:24:49|46.161.41.257|/Agenda.sql
+    encoded,shell,sqli|2014-12-10|17:21:19|61.182.202.257|/insert+into%3A%2C%45%56%76%54%4E%3A%2E%45
+    dirtrav|2014-12-03|10:10:22|74.208.69.198|/vtigercrm/modules/com_vtiger_workflow/sortfieldsjson.php?module_name=../../../../../../../..//etc/asterisk/sip_additional.conf%00
+    dirtrav|2014-12-18|21:34:49|202.62.155.257|/cart.php?a=byroe&templatefile=../../../configuration.php%00
+    dirtrav|2014-12-23|20:43:49|192.99.68.257|/?lang=../../../../../../../../../../../proc/self/environ
+    dirtrav|2014-12-23|20:46:04|192.99.68.257|/?lang=../../../../../../../../../../../proc/self/environ%00
+    dirtrav|2015-01-04|23:56:34|82.97.16.257|//cgi-bin/webcm?getpage=../html/menus/menu2.html&var:lang=%26%20allcfgconv%20-C%20voip%20-c%20-o%20-%20../../../../../var/tmp/voip.cfg%20%26
+    dirtrav|2015-01-05|02:19:43|82.97.16.257|//cgi-bin/webcm?getpage=../html/menus/menu2.html&var:lang=%26%20allcfgconv%20-C%20voip%20-c%20-o%20-%20../../../../../var/tmp/voip.cfg%20%26
+    dirtrav|2015-01-05|02:55:11|82.97.16.257|//cgi-bin/webcm?getpage=../html/menus/menu2.html&var:lang=%26%20allcfgconv%20-C%20voip%20-c%20-o%20-%20../../../../../var/tmp/voip.cfg%20%26
+    dirtrav|2015-01-07|00:10:00|216.121.118.257|/index.php?page=../../../../../../../../../../../proc/self/environ
 
 use the --help option of boolet for more options
 
