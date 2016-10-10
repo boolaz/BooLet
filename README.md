@@ -135,7 +135,7 @@ If you want to narrow down your search and to be presented with more accurate in
 
 This example displays fields ``dhiuns`` where ``country code=(BE or ES or DE)`` and ``time begins with "16:"``
 
-    $ booLet.py --fields dhiuns --country BE,ES,DE --time 16:
+    $ booLet12.py --fields dhiuns --country BE,ES,DE --time 16:
 
 output :
 
@@ -156,8 +156,17 @@ Of course you're free to chose the fields order : ``dhiuns`` is not ``idhsnu``
 
 You can also search for lines with anomalies
 
-    Ex: boolet.py -f oiur --anomaly sqli,dirtrav
-    Ex: boolet.py -f oiur --anomaly all
+    Ex: boolet12.py -f oiur --anomaly sqli,dirtrav
+    Ex: boolet12.py -f oiur --anomaly all
+
+The following example will retrieve only SQL Injections and SQL file downloads and will display the following fields (odhiu : anomaly, date, time, ip, uri)
+
+    booLet12.py -f odhiu --anomaly sqlfile,sqli
+
+The result will be as this :
+
+    sqlfile|2014-12-07|04:24:49|46.161.41.31|/Agenda.sql
+    encoded,shell,sqli|2014-12-10|17:21:19|61.182.202.57|/insert+into%3A%2C%45%56%76%54%4E%3A%2E%45
 
 use the --help option of boolet for more options
 
