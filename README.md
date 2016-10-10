@@ -23,17 +23,24 @@ Requirements
 
 Boolet 1.2 has been developed in python 2.7 and successfully tested on Linux Ubuntu 14.04 LTS and Windows 8.1x64 (version 1.1 also works on MacOSX 10.11.6 El Capitan)
 
-Boolet 1.2 requires three additional python modules to work
+Boolet 1.2 requires four additional python modules to work
 
 - [geoip2](https://pypi.python.org/pypi/geoip2) (2.2.0)
 - [pyasn](https://pypi.python.org/pypi/pyasn) (1.5.0b6)
 - [yara-python](https://pypi.python.org/pypi/yara-python) (3.5.0)
+- [PyYAML](https://pypi.python.org/pypi/pyYAML) (3.12)
 
 Installing the required modules can be achieved by the following commands :
 
-    sudo -H pip install geoip2
-    sudo -H pip install pyasn
-    sudo -H pip install yara-python
+sudo -H pip install geoip2
+sudo -H pip install pyasn
+sudo -H pip install pyYAML
+
+On linux yara can be installed this way
+sudo -H pip install yara-python
+
+On windows you will need to install yara from the binaries
+- [Yara binaries for windows](http://yara.readthedocs.io/en/v3.4.0/gettingstarted.html#installing-on-windows) 
 
 In order to install pyasn on windows, you will also need
 
