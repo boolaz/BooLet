@@ -17,6 +17,8 @@ booLet may be used by forensic investigators, or sysadmins to quickly review HTT
 
 For a demo video, click on the picture above
 
+-----------------
+
 ## Requirements
 
 Boolet 1.2 has been developed in python 2.7 and successfully tested on Linux Ubuntu 14.04 LTS and Windows 8.1x64 (version 1.1 also works on MacOSX 10.11.6 El Capitan)
@@ -55,6 +57,8 @@ In order to install pyasn on windows, you will also need
 
 And if you don't want to mess with python, you can also use the stand-alone binary version of BooLET.
 - [BooLET 1.2 for windows](https://github.com/boolaz/BooLet/blob/master/booLet_1.2/windows/)
+
+-----------------
 
 ## How to import your log files
 
@@ -98,8 +102,10 @@ You are now ready to submit your requests to the database.
 
 Each and every line of log is now associated with additional fields regarding IP addresses (country name, country ISO code, city, Autonomous System (ASN), ASN description, and IP range the IP address belongs to)
 
-## How to query data
 -----------------
+
+## How to query data
+
 you can retrieve your log data based upon selected fields in the requested order
 
 example
@@ -135,6 +141,8 @@ The following fields may be used :
     l: asn label
     o: type of anomaly detected
 
+-----------------
+
 ## How to filter output
 
 If you want to narrow down your search and to be presented with more accurate information, you can also filter data upon specific fields
@@ -166,6 +174,8 @@ You can also search for lines with anomalies
     Ex: boolet.py -f oiur --anomaly all
 
 use the --help option of boolet for more options
+
+-----------------
 
 ## How to export output data
 
