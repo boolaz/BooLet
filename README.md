@@ -5,8 +5,7 @@
     | |_) | (_) | (_) | |___|  __/ |_
     |____/ \___/ \___/|______\___|\__|
 
-Boolaz Log Examination Tool (with anomaly detection)
-====================================================
+# Boolaz Log Examination Tool (with anomaly detection)
 
 **The latest version is [BooLET 1.2](https://github.com/boolaz/BooLet/blob/master/booLet_1.2/)** (initially published on 10/10/2016). See [Changelog](https://github.com/boolaz/BooLet/blob/master/CHANGELOG.md) for release notes.
 
@@ -18,10 +17,11 @@ booLet may be used by forensic investigators, or sysadmins to quickly review HTT
 
 For a demo video, click on the picture above
 
-Requirements
-------------
+## Requirements
 
 Boolet 1.2 has been developed in python 2.7 and successfully tested on Linux Ubuntu 14.04 LTS and Windows 8.1x64 (version 1.1 also works on MacOSX 10.11.6 El Capitan)
+
+### python modules
 
 Boolet 1.2 requires four additional python modules to work
 
@@ -36,22 +36,27 @@ Installing the required modules can be achieved by the following commands :
     sudo -H pip install pyasn
     sudo -H pip install pyYAML
 
-On linux yara can be installed this way
+### Installing on Linux
+
+On linux yara can be installed like other python modules
 
     sudo -H pip install yara-python
 
-On windows you will need to install yara from the binaries
+### Installing on Windows
+
+On windows, installing yara-python via pip seems to be the hardest way.
+
+you will prefer to install yara from the binaries
 - [Yara binaries for windows](http://yara.readthedocs.io/en/v3.4.0/gettingstarted.html#installing-on-windows) 
 
 In order to install pyasn on windows, you will also need
 
 - [Microsoft Visual C++ Compiler for Python 2.7] (https://www.microsoft.com/en-us/download/details.aspx?id=44266)
 
-If you're a windows user, and you don't want to mess with python, you can also use the stand-alone binary version of BooLET.
-- [BooLET for windows](https://github.com/boolaz/BooLet/blob/master/booLet_1.2/windows/)
+And if you don't want to mess with python, you can also use the stand-alone binary version of BooLET.
+- [BooLET 1.2 for windows](https://github.com/boolaz/BooLet/blob/master/booLet_1.2/windows/)
 
-How to import your log files
-----------------------------
+## How to import your log files
 
 Once you have all modules properly installed, you can import your raw logs.
 
@@ -93,7 +98,7 @@ You are now ready to submit your requests to the database.
 
 Each and every line of log is now associated with additional fields regarding IP addresses (country name, country ISO code, city, Autonomous System (ASN), ASN description, and IP range the IP address belongs to)
 
-How to query data
+## How to query data
 -----------------
 you can retrieve your log data based upon selected fields in the requested order
 
@@ -130,8 +135,8 @@ The following fields may be used :
     l: asn label
     o: type of anomaly detected
 
-How to filter output
---------------------
+## How to filter output
+
 If you want to narrow down your search and to be presented with more accurate information, you can also filter data upon specific fields
 
 This example displays fields ``dhiuns`` where ``country code=(BE or ES or DE)`` and ``time begins with "16:"``
@@ -162,8 +167,8 @@ You can also search for lines with anomalies
 
 use the --help option of boolet for more options
 
-How to export output data
--------------------------
+## How to export output data
+
 When you're happy with your output, you have two options to save it to an output file.
 
 - Use the > sign to redirect to a new file
@@ -187,8 +192,8 @@ Both will generate the following file, named outfile.csv :
 
 This format has been adopted because it is as easy to read as to process with bash tools like awk, cut or sort.
 
-Todo list
----------
+## Todo list
+
 - update functionality for geoip and asn databases
 - add more input formats
 
