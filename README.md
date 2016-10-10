@@ -21,7 +21,7 @@ For a demo video, click on the picture above
 
 ## Requirements
 
-Boolet 1.2 has been developed in python 2.7 and successfully tested on Linux Ubuntu 14.04 LTS and Windows 8.1x64 (version 1.1 also works on MacOSX 10.11.6 El Capitan)
+Boolet 1.2 has been developed in python 2.7 and successfully tested on Linux Ubuntu 14.04 LTS (version 1.1 also works on MacOSX 10.11.6 El Capitan and Windows 8.1x64)
 
 ### python modules
 
@@ -37,26 +37,12 @@ Installing the required modules can be achieved by the following commands :
     sudo -H pip install geoip2
     sudo -H pip install pyasn
     sudo -H pip install pyYAML
-
-### Installing on Linux
-
-On linux yara can be installed like other python modules
-
     sudo -H pip install yara-python
 
-### Installing on Windows
+### Installing on Windows and Mac
 
-On windows, installing yara-python via pip seems to be the hardest way.
-
-you will prefer to install yara from the binaries
-- [Yara binaries for windows](http://yara.readthedocs.io/en/v3.4.0/gettingstarted.html#installing-on-windows) 
-
-In order to install pyasn on windows, you will also need
-
-- [Microsoft Visual C++ Compiler for Python 2.7] (https://www.microsoft.com/en-us/download/details.aspx?id=44266)
-
-And if you don't want to mess with python, you can also use the stand-alone binary version of BooLET.
-- [BooLET 1.2 for windows](https://github.com/boolaz/BooLet/blob/master/booLet_1.2/windows/)
+For now, booLet 1.2 doesn't work fine on Windows and Mac due to the use of Yara-Python which is not properly implemented for those operating systems.
+Windows and mac users may use [booLet 1.1](https://github.com/boolaz/BooLet/tree/master/booLet_1.1) instead but won't benefit from automatic anomaly detection.
 
 -----------------
 
