@@ -9,7 +9,7 @@
 
 // directory traversal -----------------
 
-rule dirtrav : Directory TRaversal
+rule dirtrav : Directory_TRaversal
 {
     meta:
         description = "directory traversal"
@@ -24,7 +24,7 @@ rule dirtrav : Directory TRaversal
 }
 
 // shells access--------------------------
-rule shell : SHell Access
+rule shell : SHell_Access
 {
     meta:
         description = "shell access attempt"
@@ -41,7 +41,7 @@ rule shell : SHell Access
 }
 
 // Encoded string-------------------------
-rule encoded : Encoded string
+rule encoded : Encoded_string
 {
     meta:
         description = "encoded string"
@@ -54,9 +54,9 @@ rule encoded : Encoded string
     condition:
         any of them
 }
-
+    
 // long field --------------------------
-rule longfield : Unusual long field
+rule longfield : Unusual_long_field
 {
     meta:
         description = "Unusual long field"

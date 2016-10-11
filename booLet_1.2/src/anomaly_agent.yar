@@ -10,7 +10,7 @@
 include "anomaly_common.yar"
 
 // SQLi agent --------------------------
-rule sqliagent : SQLi agent
+rule sqliagent : SQLi_agent
 {
     meta:
         description = "SQLi Agent"

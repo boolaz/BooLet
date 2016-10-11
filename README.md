@@ -41,8 +41,8 @@ Installing the required modules can be achieved by the following commands :
 
 ### Installing on Windows and Mac
 
-For now, booLet 1.2 doesn't work fine on Windows and Mac due to the use of Yara-Python which is not properly implemented for those operating systems.
-Windows and mac users may use [booLet 1.1](https://github.com/boolaz/BooLet/tree/master/booLet_1.1) instead but won't benefit from automatic anomaly detection.
+booLet 1.2 is not currently available for those operating systems. A compatible version will be online soon.
+For the time being, Windows and mac users may use [booLet 1.1](https://github.com/boolaz/BooLet/tree/master/booLet_1.1) instead but won't benefit from automatic anomaly detection.
 
 -----------------
 

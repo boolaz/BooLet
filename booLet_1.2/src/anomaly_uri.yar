@@ -10,7 +10,7 @@
 include "anomaly_common.yar"
 
 // SQLI ---------------------------------
-rule sqli : SQL injection
+rule sqli : SQL_injection
 {
     meta:
         description = "SQL Injection attempt"
@@ -40,7 +40,7 @@ rule sqli : SQL injection
 }
 
 // php shells --------------------------
-rule phpshell : PHP Shell
+rule phpshell : PHP_Shell
 {
     meta:
         description = "PHP Shell"
@@ -56,7 +56,7 @@ rule phpshell : PHP Shell
 }
 
 // XSS ---------------------------------
-rule xss : Cross site scripting
+rule xss : Cross_site_scripting
 {
     meta:
         description = "cross site scripting"
